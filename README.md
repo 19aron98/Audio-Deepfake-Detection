@@ -74,5 +74,28 @@ def build_model(input_shape):
 ### Training & Evaluation
 The model is trained using the Adam optimizer with binary cross-entropy loss. Key performance metrics include:
 - Validation Accuracy: ~90.90%
+```bash
+precision    recall  f1-score   support
+
+           0       0.89      0.94      0.91      3000
+           1       0.93      0.88      0.91      3000
+
+    accuracy                           0.91      6000
+   macro avg       0.91      0.91      0.91      6000
+weighted avg       0.91      0.91      0.91      6000
+```
+
 - Test Accuracy: ~90.38%
+```bash
+precision    recall  f1-score   support
+
+           0       0.87      0.95      0.91      3000
+           1       0.94      0.86      0.90      3000
+
+    accuracy                           0.90      6000
+   macro avg       0.91      0.90      0.90      6000
+weighted avg       0.91      0.90      0.90      6000
+```
 Detailed Metrics: Precision, recall, and F1-scores for both classes are reported, ensuring balanced performance.
+
+
