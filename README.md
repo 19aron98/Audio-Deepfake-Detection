@@ -37,7 +37,8 @@ This dataset contains a variety of audio scenes that are manipulated (deepfake) 
 ```bash
 pip install -r requirements.txt
 ```
-
+## Important Features from Random Forest Classifier
+![image alt](https://github.com/19aron98/Audio-Deepfake-Detection/blob/2ac0b2335111004ab943da15471bc14b3ebe8c9c/Feature%20Importance.png)
 
 ## Model Architecture
 The core of this project is a hybrid deep learning model that combines:
