@@ -1,7 +1,5 @@
 # Audio Deepfake Detection
 
-This repository provides an end-to-end framework for detecting deepfake audio using advanced feature extraction and deep learning techniques. The project leverages a hybrid CNN-BiLSTM model with an attention mechanism to robustly distinguish between real and manipulated audio samples.
-
 ## Overview
 
 Audio deepfakes have emerged as a significant threat to digital trust, with the potential to disrupt security and communications systems. This project develops a robust detection system by integrating classical feature extraction methods with modern deep learning architectures. By combining MFCC-based features, Mel spectrograms, and additional spectral features with a CNN-BiLSTM hybrid model enhanced by an attention mechanism, this approach offers a promising solution for both research and real-world applications.
