@@ -39,7 +39,7 @@ pip install -r requirements.txt
 ```
 
 
-### Model Architecture
+## Model Architecture
 The core of this project is a hybrid deep learning model that combines:
 - CNN Layers: For local feature extraction from the input audio.
 - Bidirectional LSTM Layers: To capture temporal dependencies in both forward and backward directions.
@@ -71,7 +71,7 @@ def build_model(input_shape):
     model = Model(inputs, outputs)
     return model
 ```
-### Training & Evaluation
+## Training & Evaluation
 The model is trained using the Adam optimizer with binary cross-entropy loss. Key performance metrics include:
 - Validation Accuracy: ~90.90%
 ```bash
@@ -98,4 +98,14 @@ weighted avg       0.91      0.90      0.90      6000
 ```
 Detailed Metrics: Precision, recall, and F1-scores for both classes are reported, ensuring balanced performance.
 
+## Future Improvements
+- Enhanced Data Diversity: Incorporate more varied datasets, including real-world noisy audio samples.
+- Hyperparameter Optimization: Experiment with different network configurations and regularization strategies.
+- Model Ensembling: Consider combining with transformer-based models for potentially higher accuracy.
+- Deployment Optimization: Explore model pruning and quantization for faster inference on edge devices.
 
+## References
+- SceneFake Dataset on Kaggle
+- [Audio Deepfake Detection by using Machine and Deep Learning](https://ieeexplore.ieee.org/document/10323004)
+- [Audio Deepfake Detection Using Deep Learning]([https://ieeexplore.ieee.org/document/10323004](https://ieeexplore.ieee.org/abstract/document/10428163))
+- [Unmasking the Truth: A Deep Learning Approach to Detecting Deepfake Audio Through MFCC Features](https://ieeexplore.ieee.org/document/10226172)
