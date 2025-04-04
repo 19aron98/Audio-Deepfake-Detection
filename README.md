@@ -105,7 +105,7 @@ Detailed Metrics: Precision, recall, and F1-scores for both classes are reported
 - Deployment Optimization: Explore model pruning and quantization for faster inference on edge devices.
 
 ## References
-- SceneFake Dataset on Kaggle
+- [SceneFake Dataset](https://www.kaggle.com/datasets/mohammedabdeldayem/scenefake)
 - [Audio Deepfake Detection by using Machine and Deep Learning](https://ieeexplore.ieee.org/document/10323004)
 - [Audio Deepfake Detection Using Deep Learning]([https://ieeexplore.ieee.org/document/10323004](https://ieeexplore.ieee.org/abstract/document/10428163))
 - [Unmasking the Truth: A Deep Learning Approach to Detecting Deepfake Audio Through MFCC Features](https://ieeexplore.ieee.org/document/10226172)
