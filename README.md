@@ -2,19 +2,6 @@
 
 This repository provides an end-to-end framework for detecting deepfake audio using advanced feature extraction and deep learning techniques. The project leverages a hybrid CNN-BiLSTM model with an attention mechanism to robustly distinguish between real and manipulated audio samples.
 
-## Table of Contents
-- [Overview](#overview)
-- [Features](#features)
-- [Datasets](#datasets)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Model Architecture](#model-architecture)
-- [Training & Evaluation](#training--evaluation)
-- [Results](#results)
-- [Future Improvements](#future-improvements)
-- [References](#references)
-- [License](#license)
-
 ## Overview
 
 Audio deepfakes have emerged as a significant threat to digital trust, with the potential to disrupt security and communications systems. This project develops a robust detection system by integrating classical feature extraction methods with modern deep learning architectures. By combining MFCC-based features, Mel spectrograms, and additional spectral features with a CNN-BiLSTM hybrid model enhanced by an attention mechanism, this approach offers a promising solution for both research and real-world applications.
@@ -46,7 +33,41 @@ This dataset contains a variety of audio scenes that are manipulated (deepfake) 
 - Matplotlib, Seaborn
 - tqdm
 
-### Clone the Repository
+### Install Dependencies
 ```bash
-git clone https://github.com/yourusername/Audio-Deepfake-Detection.git
-cd Audio-Deepfake-Detection
+pip install -r requirements.txt
+```
+
+
+### Model Architecture
+The core of this project is a hybrid deep learning model that combines:
+- CNN Layers: For local feature extraction from the input audio.
+- Bidirectional LSTM Layers: To capture temporal dependencies in both forward and backward directions.
+- Attention Mechanism: To focus on the most informative parts of the sequence, enhancing classification accuracy.
+- Fully Connected Layers: With dropout regularization to prevent overfitting, followed by a final sigmoid layer for binary classification.
+
+```bash
+def build_model(input_shape):
+    inputs = Input(shape=input_shape)
+
+    # CNN layer
+    x = Conv1D(filters=64, kernel_size=3, padding='same', activation='relu', kernel_regularizer=l2(0.01))(inputs)
+    x = MaxPooling1D(pool_size=2)(x)
+    x = Dropout(0.3)(x)
+
+    # BiLSTM layer
+    x = Bidirectional(LSTM(64, return_sequences=True, kernel_regularizer=l2(0.1)))(x)
+    x = Dropout(0.3)(x)
+
+    # Attention mechanism
+    attention = Attention()([x, x])
+    attention = GlobalMaxPooling1D()(attention)
+
+    # Fully connected layers
+    x = Dense(128, activation='relu', kernel_regularizer=l2(0.01))(attention)
+    x = Dropout(0.5)(x)
+    outputs = Dense(1, activation='sigmoid')(x)
+
+    model = Model(inputs, outputs)
+    return model
+```
