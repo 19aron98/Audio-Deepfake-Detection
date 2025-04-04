@@ -71,3 +71,8 @@ def build_model(input_shape):
     model = Model(inputs, outputs)
     return model
 ```
+### Training & Evaluation
+The model is trained using the Adam optimizer with binary cross-entropy loss. Key performance metrics include:
+-Validation Accuracy: ~90.90%
+-Test Accuracy: ~90.38%
+Detailed Metrics: Precision, recall, and F1-scores for both classes are reported, ensuring balanced performance.
